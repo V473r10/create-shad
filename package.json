@@ -1,7 +1,7 @@
 {
   "name": "create-shad",
-  "version": "0.0.1",
-  "description": "A starter for creating a TypeScript package.",
+  "version": "0.0.11",
+  "description": "A starter for creating a Shadcn/ui app.",
   "type": "module",
   "license": "MIT",
   "homepage": "https://github.com/v473r10/create-shad#readme",
