@@ -1,6 +1,6 @@
 {
   "name": "create-shad",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "A starter for creating a Shadcn/ui app.",
   "type": "module",
   "license": "MIT",
