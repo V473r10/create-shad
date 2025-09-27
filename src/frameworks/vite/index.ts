@@ -24,10 +24,7 @@ export const createViteProject = async (projectName: string) => {
   await viteConfig(projectName);
 
   // Run Shadcn CLI initialization
-  const { stdout } = await execAsync(
-    `cd ${projectName} && pnpm dlx shadcn@latest init -d`,
-  );
-  console.log(stdout);
+  await execAsync(`cd ${projectName} && pnpm dlx shadcn@latest init -d`);
 };
 
 const tailwindConfig = async (projectName: string) => {
