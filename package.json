@@ -1,6 +1,6 @@
 {
   "name": "create-shad",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "A starter for creating a Shadcn/ui app.",
   "type": "module",
   "license": "MIT",
@@ -16,6 +16,9 @@
   "files": [
     "dist"
   ],
+  "bin": {
+    "create-shad": "dist/index.js"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
