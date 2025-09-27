@@ -7,11 +7,8 @@ async function main() {
   intro("Welcome to Create Shad!");
 
   const framework = await select({
-    message: "Pick a project framework.",
-    options: [
-      { value: "vite", label: "Vite" },
-      { value: "next", label: "Next.js" },
-    ],
+    message: "Pick a project framework. Only Vite is supported at the moment.",
+    options: [{ value: "vite", label: "Vite" }],
   });
 
   const appName = await text({
@@ -30,9 +27,6 @@ async function main() {
       s.start("Creating a sample component...");
       await sample(appName.toString());
       s.stop("Sample component created!");
-      break;
-    case "next":
-      s.start("Creating Next.js project...");
       break;
   }
 }
