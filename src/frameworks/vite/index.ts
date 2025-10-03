@@ -33,6 +33,10 @@ const tailwindConfig = async (projectName: string) => {
   writeFileSync(indexCssPath, '@import "tailwindcss";');
 };
 
+const removeJsonComments = (jsonString: string) => {
+  return jsonString.replace(/\/\*.*?\*\//g, "");
+};
+
 const tsConfig = async (projectName: string) => {
   // Update tsconfig.json with baseUrl and paths
   const tsconfigPath = join(projectName, "tsconfig.json");
@@ -45,6 +49,19 @@ const tsConfig = async (projectName: string) => {
     },
   };
   writeFileSync(tsconfigPath, JSON.stringify(tsconfig, null, 2));
+
+  const tsAppConfigPath = join(projectName, "tsconfig.app.json");
+  const tsAppConfig = JSON.parse(
+    removeJsonComments(readFileSync(tsAppConfigPath, "utf-8")),
+  );
+  tsAppConfig.compilerOptions = {
+    ...tsAppConfig.compilerOptions,
+    baseUrl: ".",
+    paths: {
+      "@/*": ["./src/*"],
+    },
+  };
+  writeFileSync(tsAppConfigPath, JSON.stringify(tsAppConfig, null, 2));
 };
 
 const viteConfig = async (projectName: string) => {
