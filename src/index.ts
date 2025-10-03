@@ -11,11 +11,14 @@ async function main() {
     options: [{ value: "vite", label: "Vite" }],
   });
 
-  const appName = await text({
+  let appName = await text({
     message: "Enter your app name:",
     placeholder: "my-app",
-    initialValue: "my-app",
   });
+
+  if (!appName) {
+    appName = "my-app";
+  }
 
   const s = spinner();
 
